@@ -3,7 +3,7 @@ const express = require ("express");
 const app = express();
 const res =require("express/lib/response");
 const http =require("http");  //htttp core module
-const fs = require("fs");   // file system 
+const fs = require("fs");   // file system - json file ni chaqirish uchun ishlatilyapti
 
 let user;
 fs.readFile("database/user.json", "utf8", (err, data) =>{
