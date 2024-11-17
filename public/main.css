@@ -108,6 +108,7 @@
 .right_frame {
     position: relative;
     width: 108px;
+    height: 1312px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -118,6 +119,7 @@
 .icon-1 {
     display: flex;
     justify-content: center;
+    margin-top: 30px;
 
 }
 
@@ -126,7 +128,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 300px;
 }
 
 .combine {
