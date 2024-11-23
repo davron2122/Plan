@@ -1,19 +1,35 @@
+/*
+B-TASK: 
+
+Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
+MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
+*/
+
+
+//solution: 
+
+function countDigit(isNumber) {
+  let count = 0;
+
+  for (let i = 0; i < isNumber.length; i++) {
+    if (!isNaN(isNumber[i]) && isNumber[i] !== " ") {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log("RESULT:", countDigit("ad2a54y79wet0sfgb9"));
+
+
+//--------------------------------------------------------------
 // Task-A
 //Shunday 2 parametrli function tuzing, hamda birinchi parametrdagi letterni ikkinchi parametrdagi so'zdan qatnashga sonini return qilishi kerak boladi.
 //Masalan, countLetter ("e", "engineer") 3ni return qilsin.
 //For loop dan foydalaning
 
-function countLetter(letter, setLetter) {
-    let count = 0;
-    for (let i = 0; i < setLetter.length; i++) {
-        if (setLetter[i] === letter) {
-            count++;
-        }
-    }
-    return count;
-}
-const result = countLetter("3", "353");
-console.log("result:", result);
+
 
 // via Filter and Split method
 /*
