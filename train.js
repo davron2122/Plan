@@ -23,7 +23,7 @@ function countDigit(isNumber) {
 console.log("RESULT:", countDigit("ad2a54y79wet0sfgb9"));
 
 
-//--------------------------------------------------------------
+//-------------------------------------------------------------------------------------
 // Task-A
 //Shunday 2 parametrli function tuzing, hamda birinchi parametrdagi letterni ikkinchi parametrdagi so'zdan qatnashga sonini return qilishi kerak boladi.
 //Masalan, countLetter ("e", "engineer") 3ni return qilsin.

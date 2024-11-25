@@ -14,7 +14,7 @@ mongodb.connect(connectionSTring,
         else {
             console.log("MongoDB connection successed");
 
-            module.exports =client;
+            module.exports = client;
 
             const app = require("./app");
             const server = http.createServer(app);

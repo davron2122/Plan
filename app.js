@@ -3,7 +3,7 @@ console.log("web serverni boshlash");
 const express = require("express")
 const res = require("express/lib/response");
 const http = require("http");
-const app = express();           //htttp core module
+const app = express();                    //htttp core module
 const fs = require("fs");                // file system - json file ni chaqirish uchun ishlatilyapti
 const db = require("./server").db();      //calling the MongoDB 
 
@@ -45,13 +45,16 @@ app.post("/create-item", (req, res) => {
     console.log(req.body);
     const new_reja = req.body.reja;
     db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
-        if (err) {
-            console.log(err);
-            res.end("something went wrong")
-        } else {
-            console.log(data);
-            res.end("successfull added");
-        }
+        console.log(data.ops);
+        res.json(data.ops[0]);
+
+        // if (err) {
+        //     console.log(err);
+        //     res.end("something went wrong")
+        // } else {
+        //     console.log(data);
+        //     res.end("successfull added");
+        // }
     });
 
 });
@@ -66,8 +69,8 @@ app.get("/", function (req, res) {
                 console.log(err);
                 res.end("something went wrong");
             } else {
-    
-                res.render("plans", {items: data});
+
+                res.render("plans", { items: data });
             }
         });
 });
