@@ -4,9 +4,10 @@ const express = require("express")
 const res = require("express/lib/response");
 const http = require("http");
 const app = express();                    //htttp core module
-const fs = require("fs");                // file system - json file ni chaqirish uchun ishlatilyapti
+const fs = require("fs"); // file system - json file ni chaqirish uchun ishlatilyapti
 const db = require("./server").db();      //calling the MongoDB 
-
+const mongodb =require("mongodb");
+const axios = require('axios');
 
 
 // let user;
@@ -41,7 +42,7 @@ app.set("view engine", "ejs");
 //4. Routing code - addresslarni shaklllantirish  - end pointlar hisoblanadi
 
 app.post("/create-item", (req, res) => {
-    console.log("user entered /create-item");
+    console.log("user entered/create-item");
     console.log(req.body);
     const new_reja = req.body.reja;
     db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
@@ -59,6 +60,14 @@ app.post("/create-item", (req, res) => {
 
 });
 
+app.post("/delete-item", (req, res) => {
+    const id = req.body.id;
+   db.collection("plans").deleteOne({_id: new mongodb.ObjectId(id)}, function (err, data){
+    res.json({state: "success"})
+
+})
+});
+
 
 app.get("/", function (req, res) {
     console.log("user entered /");
@@ -69,7 +78,7 @@ app.get("/", function (req, res) {
                 console.log(err);
                 res.end("something went wrong");
             } else {
-
+        
                 res.render("plans", { items: data });
             }
         });

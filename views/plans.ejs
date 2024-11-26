@@ -34,10 +34,10 @@
             <%=item.reja%>
           </span>
           <div>
-            <button data-id="<%=item._id%>" class="edit-me btn btn-secondary btn-sm mr-1">
+            <button data-id="<%=item._id%>" class="edit-item btn btn-secondary btn-sm mr-1">
               Change
             </button>
-            <button data-id="<%=item._id%>" class="btn btn-danger" style="border-radius: 20px">
+            <button data-id="<%=item._id%>" class="delete-item btn btn-danger" style="border-radius: 20px">
               Delete
             </button>
 
@@ -47,13 +47,12 @@
         <% }) %>
 
     </ul>
-    <button id="clean-all" class="btn btn-danger" style="border-radius: 20px">
+    <button id="clean-all" class="delete-all btn btn-danger" style="border-radius: 20px">
       Delete all plans
     </button>
 
   </div>
-  <script src=<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
   <script src="/browser.js"></script>
 </body>
 
