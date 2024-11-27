@@ -1,11 +1,11 @@
 console.log("FrontEnd JS started workingi");
 let createField = document.getElementById("create-field");
 
-function itemTemplate(data) {
+function itemTemplate(item) {
   return `<li 
     class="list-group-item list-group-item-info d-flex align-items-center justify-content-between ">
     <span class="item-text">
-   "${item.reja}"
+   ${item.reja}
     </span>
     <div>
       <button data-id="${item._id}" class="edit-item btn btn-secondary btn-sm mr-1">
@@ -25,12 +25,12 @@ function itemTemplate(data) {
 
 
 document.getElementById("create-form")
-  .addEventListener("sumbit", function (e) {
+  .addEventListener("submit", function (e) {
     e.preventDefault();
     //prevent not to go to another page = (default it will move to another page) 
 
             
-      axios.post("/create-item", { plan: createField.value })
+      axios.post("/create-item", { reja: createField.value })
       .then((response) => {
         document.getElementById("item-list")
           .insertAdjacentHTML("beforeend", itemTemplate(response.data));

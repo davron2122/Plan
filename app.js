@@ -10,14 +10,14 @@ const mongodb =require("mongodb");
 const axios = require('axios');
 
 
-// let user;
-// fs.readFile("database/user.json", "utf8", (err, data) =>{
-//     if (err){
-//         console.log("ERROR:", err);
-//     }else {
-//         user = JSON.parse(data)
-//     }
-// });
+let user;
+fs.readFile("database/user.json", "utf8", (err, data) =>{
+    if (err){
+        console.log("ERROR:", err);
+    }else {
+        user = JSON.parse(data)
+    }
+});
 
 //gitda nima commit qilganimizni :  git log --online orqali
 
