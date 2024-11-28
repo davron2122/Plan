@@ -2,6 +2,7 @@ console.log("FrontEnd JS started workingi");
 let createField = document.getElementById("create-field");
 
 function itemTemplate(item) {
+
   return `<li 
     class="list-group-item list-group-item-info d-flex align-items-center justify-content-between ">
     <span class="item-text">
@@ -22,15 +23,14 @@ function itemTemplate(item) {
 
 
 
-
-
 document.getElementById("create-form")
   .addEventListener("submit", function (e) {
-    e.preventDefault();
+    e.preventDefault();                       // traditional API ni toxtatadi
     //prevent not to go to another page = (default it will move to another page) 
 
-            
-      axios.post("/create-item", { reja: createField.value })
+    //Rest Api
+
+    axios.post("/create-item", { reja: createField.value })
       .then((response) => {
         document.getElementById("item-list")
           .insertAdjacentHTML("beforeend", itemTemplate(response.data));
@@ -52,19 +52,48 @@ document.addEventListener("click", function (e) {
   if (e.target.classList.contains("delete-item")) {
 
     if (confirm("Do you really want to delete?")) {
-       axios.post("/delete-item", {id: e.target.getAttribute("data-id")})
+      axios.post("/delete-item", { id: e.target.getAttribute("data-id") })
         .then((response) => {
           console.log(response.data);
           e.target.parentElement.parentElement.remove();
         })
-        .catch((err) => {});
-        console.log("Please try again!")
+        .catch((err) => { });
+      console.log("Please try again!")
 
 
     }
   }
   //edit operator
   if (e.target.classList.contains("edit-item")) {
-    alert("you clicked edit buttton");
+    let userInput = prompt("Insert update", e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+    );
+    if (userInput) {
+      axios
+        .post("/edit-item", {
+          id: e.target.getAttribute("data-id"),
+          new_input: userInput,
+        })
+        .then((response) => {
+          //DATABASE => FRONT END 
+          console.log(response);
+          e.target.parentElement.parentElement
+          .querySelector(".item-text")
+          .innerHTML= userInput;
+
+        })
+        .catch((err) => { 
+          console.log("Please try again");
+        });
+    }
   }
+});
+
+//delete-all
+
+document.getElementById("clean-all").addEventListener("click", function(){
+axios.post("delete-all", {delete_all: true}).then (response =>{
+alert(response.data.state);
+document.location.reload();
+})
+
 });
