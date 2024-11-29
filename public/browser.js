@@ -25,13 +25,15 @@ function itemTemplate(item) {
 
 document.getElementById("create-form")
   .addEventListener("submit", function (e) {
-    e.preventDefault();                       // traditional API ni toxtatadi
+    e.preventDefault();       // traditional API ni toxtatadi
     //prevent not to go to another page = (default it will move to another page) 
 
     //Rest Api
 
     axios.post("/create-item", { reja: createField.value })
+      //STEP6. BACKENDDAN MALUMTNI QABUL QILDM
       .then((response) => {
+
         document.getElementById("item-list")
           .insertAdjacentHTML("beforeend", itemTemplate(response.data));
 
@@ -77,11 +79,11 @@ document.addEventListener("click", function (e) {
           //DATABASE => FRONT END 
           console.log(response);
           e.target.parentElement.parentElement
-          .querySelector(".item-text")
-          .innerHTML= userInput;
+            .querySelector(".item-text")
+            .innerHTML = userInput;
 
         })
-        .catch((err) => { 
+        .catch((err) => {
           console.log("Please try again");
         });
     }
@@ -90,10 +92,10 @@ document.addEventListener("click", function (e) {
 
 //delete-all
 
-document.getElementById("clean-all").addEventListener("click", function(){
-axios.post("delete-all", {delete_all: true}).then (response =>{
-alert(response.data.state);
-document.location.reload();
-})
+document.getElementById("clean-all").addEventListener("click", function () {
+  axios.post("delete-all", { delete_all: true }).then(response => {
+    alert(response.data.state);
+    document.location.reload();
+  })
 
 });
