@@ -1,20 +1,36 @@
+/*E-TASK: 
+
+Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
+MASALAN: getReverse("hello") return qilsin "olleh"
+*/
+
+function getReverse(str) {
+  let reversed = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversed += str[i];
+  }
+  return reversed;
+}
+console.log(getReverse("hello"));
+
+
 //TASK-D
 /*
 Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin
 MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true;
 */
 
-function haveSameLetters(str1, str2) {
-  const sortString = (str) => str.split("").sort().join("");
-  return sortString(str1) === sortString(str2);
-}
-const result = haveSameLetters("mitgroup", "gmtiprou");
-console.log("result:", result);
+// function haveSameLetters(str1, str2) {
+//   const sortString = (str) => str.split("").sort().join("");
+//   return sortString(str1) === sortString(str2);
+// }
+// const result = haveSameLetters("mitgroup", "gmtiprou");
+// console.log("result:", result);
 
-console.log("******");
+// console.log("******");
 
-const result2 = haveSameLetters("Nodjs", "isFun");
-console.log("result2:", result2);
+// const result2 = haveSameLetters("Nodjs", "isFun");
+// console.log("result2:", result2);
  
 
 
